@@ -1,7 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.footer`
+  width: 100%;
   height: 34px;
+
+  position: fixed;
+  bottom:0;
+
   background: var(--gray-light);
 
   display: flex;

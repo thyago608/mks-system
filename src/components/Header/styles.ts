@@ -2,10 +2,14 @@ import styled from "styled-components";
 
 export const Container = styled.header`
   background: var(--blue);
+
+  position:sticky;
+  top:0;
 `;
 
 export const Content = styled.div`
   max-width: 1000px;
+  height: 48px;
   margin: 0 auto;
   padding: 0 1.375rem;
 
@@ -16,7 +20,6 @@ export const Content = styled.div`
 
 export const Logo = styled.div`
   color: var(--white);
-  height: 48px;
 
   display: flex;
   align-items: center;
