@@ -4,6 +4,7 @@ export const GlobalStyle = createGlobalStyle`
     :root{
         --gray-semi-dark:#373737;
         --gray-dark:#2C2C2C;
+        --gray-light:#EEEEEE;
         --black:#000000;
         --blue:#0F52BA;
         --white:#FFFFFF;
@@ -21,6 +22,7 @@ export const GlobalStyle = createGlobalStyle`
     textarea, 
     button{
         font: 400 1rem 'Montserrat', sans-serif;
+        color: var(--gray-dark);
     }
 
     button{
