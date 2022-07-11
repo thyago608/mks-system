@@ -10,6 +10,33 @@ export default function Home() {
         </Head>
         <Container>
             <Product />
+            <Product />
+            <Product />
+            <Product />
+            <Product />
+            <Product />
+            <Product />
+            <Product />
+            <Product />
+            <Product />
+            <Product />
+            <Product />
+            <Product /> 
+            <Product />
+            <Product />
+            <Product />
+            <Product />
+            <Product />
+            <Product />
+            <Product />
+            <Product />
+            <Product />
+            <Product /> 
+            <Product />
+            <Product />
+            <Product />
+            <Product />
+            <Product />
         </Container>
     </>
   );

@@ -3,19 +3,27 @@ import styled from "styled-components";
 export const Container = styled.header`
   background: var(--blue);
 
-  position:sticky;
+  width:100%;
+
+  position:fixed;
   top:0;
+  z-index: 1;
 `;
 
 export const Content = styled.div`
-  max-width: 1000px;
-  height: 48px;
+  max-width: 1250px;
   margin: 0 auto;
+  height: 48px;
   padding: 0 1.375rem;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+
+  @media(min-width:1440px){
+    height: 100px;
+  }
 `;
 
 export const Logo = styled.div`
@@ -53,4 +61,11 @@ export const Cart = styled.button`
   display: flex;
   gap: 0.625rem;
   align-items: center;
+
+  @media(min-width:1440px){
+    height: 45px;
+
+    padding: 0 1.875rem;
+    font-size: 1.125rem;
+  }
 `;
