@@ -1,12 +1,21 @@
 import { useSidebar } from "hooks/useSidebar";
+import { useSelector } from "react-redux";
+import { IState } from "store";
 import { CloseButton } from "components/ButtonClose";
 import { MiniCardProduct } from "components/MiniCardProduct";
 import { Container, Heading, ProductList, Footer } from "./styles";
-
-const Zoom = require("react-reveal/Zoom");
+import { ICartItem } from "store/modules/cart/types";
 
 export function Aside() {
   const { isOpenSidebar, handleCloseSidebar } = useSidebar();
+  const products = useSelector<IState, ICartItem[]>(state => state.cart.items);
+
+  const total = products.reduce((acumulator, currentValue) => acumulator + currentValue.subtotal, 0);
+
+  const totalFormatted = new Intl.NumberFormat('pt-BR',{
+    style:'currency',
+    currency:'BRL'
+  }).format(total)
 
   return isOpenSidebar ? (
     <Container>
@@ -17,19 +26,16 @@ export function Aside() {
 
         <ProductList>
           <div className="list">
-            <MiniCardProduct />
-            <MiniCardProduct />
-            <MiniCardProduct />
-            <MiniCardProduct />
-            <MiniCardProduct />
-            <MiniCardProduct />
+              {products.map(item => (
+                <MiniCardProduct key={item.product.id} data={item}/>
+              ))}
           </div>
         </ProductList>
         
         <Footer>
           <div className="total">
             <span>total:</span>
-            <strong>R$798</strong>
+            <strong>{totalFormatted}</strong>
           </div>
           <button type="button">finalizar compra</button>
         </Footer>

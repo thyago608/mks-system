@@ -14,25 +14,13 @@ export const Container = styled.div`
     height: 95px;
 
     display: flex;
-    justify-content: space-between;
     align-items: center;
-
+    gap: 20px;    
     position: relative;
   }
 `;
 
-type Props = {
-  isLoading?: boolean;
-};
-
-export const Heading = styled.div<Props>`
-  ${(props) =>
-    props.isLoading &&
-    css`
-      display: flex;
-      justify-content: center;
-    `}
-
+export const Heading = styled.div`
   .container-image {
     position: relative;
 
@@ -47,8 +35,6 @@ export const Heading = styled.div<Props>`
   }
 
   @media (min-width: 1024px) {
-    margin-right: 20px;
-
     .container-image {
       width: 46px;
       height: 57px;
@@ -65,31 +51,28 @@ export const Heading = styled.div<Props>`
   }
 `;
 
-export const Content = styled.div<Props>`
-  ${props => props.isLoading && css`
-     margin-top: 10px;
-     
-     display: flex;
-     flex-direction: column;
-     gap: 10px;
-  `}
+export const Content = styled.div`
+  width: 100%;
 
   .text {
     margin: 13px 0 10px 0;
+    text-align: center;
   }
 
   .quantityAndValue {
     display: flex;
     justify-content: space-between;
+    gap:15px;
 
     .quantity {
       width: 100px;
+      height: 27px;
       padding: 0.225rem;
-
+      
       display: flex;
       justify-content: space-between;
       align-items: center;
-
+      
       border-radius: 4px;
       border: 1px solid rgba(191, 191, 191, 0.4);
 
@@ -100,6 +83,7 @@ export const Content = styled.div<Props>`
       button {
         background: var(--white);
         width: 35%;
+        line-height: 50%;
 
         &:first-of-type {
           border-right: 1px solid rgba(191, 191, 191, 0.4);
@@ -138,6 +122,7 @@ export const Content = styled.div<Props>`
 
     .text {
       margin: 0;
+      text-align: left;
     }
 
     .quantityAndValue {

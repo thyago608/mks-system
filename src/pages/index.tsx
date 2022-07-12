@@ -1,15 +1,17 @@
 import { GetServerSideProps } from "next";
 import Head from "next/head";
-import axios from "services/api";
 import { Container } from "./home";
 import { Product } from "components/Product";
+import axios from "services/api";
 
 interface Product {
   id: number;
   name: string;
+  brand:string;
   description: string;
   photo: string;
   price: string;
+  priceNumber:number;
 }
 
 interface HomeProps {
@@ -43,6 +45,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
         style: "currency",
         currency: "BRL",
       }).format(Number(product.price)),
+      priceNumber: product.price
     };
   });
 

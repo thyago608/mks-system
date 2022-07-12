@@ -1,25 +1,29 @@
-import { useState, useEffect } from "react";
+import { useState, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 import { ProductSkeleton } from "components/Skeleton/Product";
 import { FiShoppingBag } from "react-icons/fi";
+import { addProductToCart } from "store/modules/cart/actions";
 import { Container, ImageContainer, Description, Buy } from "./styles";
+import {  IProduct } from "store/modules/cart/types";
 interface ProductProps {
   data: {
     id: number;
     name: string;
+    brand: string;
     description: string;
     photo: string;
     price: string;
+    priceNumber:number;
   };
 }
 
 export function Product({ data }: ProductProps) {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 4000);
+  const handleAddProductToCart = useCallback((product: IProduct) => {
+    dispatch(addProductToCart(product));
   }, []);
 
   return isLoading ? (
@@ -36,7 +40,7 @@ export function Product({ data }: ProductProps) {
         </div>
         <p className="text">{data.description}</p>
       </Description>
-      <Buy>
+      <Buy type="button" onClick={() => handleAddProductToCart(data)}>
         <FiShoppingBag />
         comprar
       </Buy>

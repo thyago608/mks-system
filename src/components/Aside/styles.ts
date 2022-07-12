@@ -65,6 +65,8 @@ export const Footer = styled.footer`
 
     display: flex;
     justify-content: space-between;
+    gap: 50px;
+    transform: scale(0.7);
     color: var(--white);
 
     font-weight: 700;
