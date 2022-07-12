@@ -1,6 +1,7 @@
-import { FiX } from "react-icons/fi";
 import { useSidebar } from "hooks/useSidebar";
-import { Container, Heading, Footer } from "./styles";
+import { CloseButton } from "components/ButtonClose";
+import { MiniCardProduct } from "components/MiniCardProduct";
+import { Container, Heading, ProductList, Footer } from "./styles";
 
 export function Aside() {
   const { isOpenSidebar, handleCloseSidebar } = useSidebar();
@@ -9,12 +10,19 @@ export function Aside() {
     <Container>
       <Heading>
         <h2>Carrinho de Compras</h2>
-        <button type="button" onClick={handleCloseSidebar}>
-          <FiX />
-        </button>
+        <CloseButton size={32} handleClose={handleCloseSidebar} />
       </Heading>
 
-      <section className="products-list"></section>
+      <ProductList>
+        <div className="list">
+          <MiniCardProduct />
+          <MiniCardProduct />
+          <MiniCardProduct />
+          <MiniCardProduct />
+          <MiniCardProduct />
+          <MiniCardProduct />
+        </div>
+      </ProductList>
 
       <Footer>
         <div className="total">

@@ -3,58 +3,65 @@ import styled from "styled-components";
 export const Container = styled.aside`
   background: var(--blue);
 
-  width: 85%;
-  height: 100vh;
-
   position: fixed;
   top: 0;
-  right: 0;
+  right: -5px;
+  bottom: 0;
+
   z-index: 2;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+
+  width: 275px;
+
+  @media(min-width: 768px){
+    width: 360px;
+  }
+
+  @media(min-width: 1024px){
+    width: 486px;
+  }
 `;
 
 export const Heading = styled.div`
-  padding: 1.5rem 1.2rem;
-
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  padding: 1rem 1rem 1rem 2rem;
 
   h2 {
     font-size: 27px;
     color: var(--white);
   }
 
-  button {
-    background: var(--black);
-    border: 0;
+  @media(min-width: 1024px){
+    padding: 2.2rem;
+  }
+`;
 
-    padding: 0.25rem;
-    border-radius: 50%;
+export const ProductList = styled.div`
+  overflow-y: scroll;
 
+  &::-webkit-scrollbar{
+    appearance: none;
+  }
+
+  .list {
+    margin: 1rem 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-
-    transition: filter 0.2s ease-in-out;
-
-    svg {
-      font-size: 2rem;
-      stroke: var(--blue);
-    }
-
-    &:hover {
-      filter: brightness(0.8);
-    }
+    gap: 12px;
   }
 `;
 
 export const Footer = styled.footer`
+  margin-top: auto;
+
   .total {
-    padding: 0 1rem;
+    margin: 20px 0 28px 0;
+    padding: 0 1.7rem;
 
     display: flex;
     justify-content: space-between;
@@ -69,8 +76,6 @@ export const Footer = styled.footer`
   }
 
   button {
-    margin-top:1.5rem;
-
     border: 0;
 
     width: 100%;
@@ -84,8 +89,8 @@ export const Footer = styled.footer`
 
     transition: filter 0.2s ease-in-out;
 
-    &:hover{
-        filter:brightness(0.8);
+    &:hover {
+      filter: brightness(0.8);
     }
-}
+  }
 `;

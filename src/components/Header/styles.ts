@@ -14,7 +14,7 @@ export const Content = styled.div`
   max-width: 1250px;
   margin: 0 auto;
   height: 48px;
-  padding: 0 1.375rem;
+  padding: 0 0.5rem;
 
   display: flex;
   justify-content: space-between;
