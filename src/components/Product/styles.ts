@@ -7,6 +7,10 @@ export const Container = styled.div`
 
   width: 250px;
   padding-top: 1.25rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const ImageContainer = styled.div`
@@ -18,21 +22,10 @@ export const ImageContainer = styled.div`
   margin: 0 auto;
 `;
 
-type DescriptionProps = {
-  isLoading?:boolean;
-};
-
-export const Description = styled.div<DescriptionProps>`
+export const Description = styled.div`
   margin-top: 1rem;
   padding: 0 0.9375rem;
 
-  ${props => props.isLoading && css`
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 10px;
-  `}
-  
   .heading {
     display: flex;
     justify-content: space-between;
@@ -85,13 +78,11 @@ export const Buy = styled.button`
 
   transition: filter 0.2s ease;
 
-  svg{
+  svg {
     font-size: 1.2rem;
   }
 
-  &:hover{
+  &:hover {
     filter: brightness(0.85);
   }
-
-  
 `;

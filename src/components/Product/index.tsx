@@ -1,10 +1,19 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { ProductSkeleton } from "components/Skeleton/Product";
 import { FiShoppingBag } from "react-icons/fi";
-import { Skeleton } from "components/Skeleton";
 import { Container, ImageContainer, Description, Buy } from "./styles";
+interface ProductProps {
+  data: {
+    id: number;
+    name: string;
+    description: string;
+    photo: string;
+    price: string;
+  };
+}
 
-export function Product() {
+export function Product({ data }: ProductProps) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -13,32 +22,19 @@ export function Product() {
     }, 4000);
   }, []);
 
-  if (isLoading) {
-    return (
-      <Container>
-        <ImageContainer>
-          <Skeleton width={127} height={158} />
-        </ImageContainer>
-        <Description isLoading>
-          <Skeleton width={220} height={38} />
-          <Skeleton width={220} height={24} />
-        </Description>
-        <Skeleton width={250} height={36} />
-      </Container>
-    );
-  }
-
-  return (
+  return isLoading ? (
+    <ProductSkeleton />
+  ) : (
     <Container>
       <ImageContainer>
-        <Image src="/apple-watch.svg" alt="Produto" layout="fill" />
+        <Image src={data.photo} alt={data.name} layout="fill" />
       </ImageContainer>
       <Description>
         <div className="heading">
-          <h2>Apple Watch Series 4 GPS</h2>
-          <span>R$399</span>
+          <h2>{data.name}</h2>
+          <span>{data.price}</span>
         </div>
-        <p className="text">Redesigned from scratch and completely revised.</p>
+        <p className="text">{data.description}</p>
       </Description>
       <Buy>
         <FiShoppingBag />

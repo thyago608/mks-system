@@ -26,8 +26,9 @@ export const Content = styled.div`
   }
 `;
 
-export const Logo = styled.div`
+export const Logo = styled.a`
   color: var(--white);
+  cursor: pointer;
 
   display: flex;
   align-items: center;

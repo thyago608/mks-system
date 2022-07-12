@@ -1,34 +1,9 @@
-import { useState, useEffect } from "react";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import Image from "next/image";
-import { Skeleton } from "components/Skeleton";
 import { Container, Heading, Content } from "./styles";
 import { CloseButton } from "components/ButtonClose";
 
 export function MiniCardProduct() {
-  const [isLoading, setIsLoading] = useState(true);
-
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    },3000);
-  },[])
-
-  if (isLoading) {
-    return (
-      <Container>
-        <Heading isLoading>
-          <Skeleton width={80} height={95} />
-        </Heading>
-        <Content isLoading>
-          <Skeleton width={208} height={19} />
-          <Skeleton width={208} height={19} />
-        </Content>
-      </Container>
-    );
-  }
-
   return (
     <Container>
       <Heading>
