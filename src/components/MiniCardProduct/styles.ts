@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   background: var(--white);
@@ -21,7 +21,18 @@ export const Container = styled.div`
   }
 `;
 
-export const Heading = styled.div`
+type Props = {
+  isLoading?: boolean;
+};
+
+export const Heading = styled.div<Props>`
+  ${(props) =>
+    props.isLoading &&
+    css`
+      display: flex;
+      justify-content: center;
+    `}
+
   .container-image {
     position: relative;
 
@@ -54,7 +65,15 @@ export const Heading = styled.div`
   }
 `;
 
-export const Content = styled.div`
+export const Content = styled.div<Props>`
+  ${props => props.isLoading && css`
+     margin-top: 10px;
+     
+     display: flex;
+     flex-direction: column;
+     gap: 10px;
+  `}
+
   .text {
     margin: 13px 0 10px 0;
   }
@@ -74,7 +93,7 @@ export const Content = styled.div`
       border-radius: 4px;
       border: 1px solid rgba(191, 191, 191, 0.4);
 
-      span{
+      span {
         display: none;
       }
 
@@ -130,7 +149,7 @@ export const Content = styled.div`
 
         position: relative;
 
-        span{
+        span {
           display: inline-block;
 
           position: absolute;

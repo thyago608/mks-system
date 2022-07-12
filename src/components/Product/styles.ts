@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   background: #ffffff;
@@ -18,10 +18,21 @@ export const ImageContainer = styled.div`
   margin: 0 auto;
 `;
 
-export const Description = styled.div`
+type DescriptionProps = {
+  isLoading?:boolean;
+};
+
+export const Description = styled.div<DescriptionProps>`
   margin-top: 1rem;
   padding: 0 0.9375rem;
 
+  ${props => props.isLoading && css`
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 10px;
+  `}
+  
   .heading {
     display: flex;
     justify-content: space-between;
