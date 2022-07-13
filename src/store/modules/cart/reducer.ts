@@ -67,6 +67,11 @@ const cart: Reducer<ICartState> = (state = INITIAL_STATE, action) => {
         }
         break;
 
+        case "REMOVE_ALL_PRODUCTS_TO_CART":{
+          draft.items.splice(0, draft.items.length);
+        }
+        break;
+
       default:
         return draft;
     }

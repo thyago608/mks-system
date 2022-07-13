@@ -1,25 +1,51 @@
-import { GetServerSideProps } from "next";
-import { ToastContainer } from "react-toastify";
+import { useState } from "react";
+import { GetStaticProps } from "next";
 import Head from "next/head";
-import { Container } from "../styles/home";
+import { Container, MoreProduct } from "../styles/home";
 import { Product } from "components/Product";
 import axios from "services/api";
 
 interface Product {
   id: number;
   name: string;
-  brand:string;
+  brand: string;
   description: string;
   photo: string;
   price: string;
-  priceNumber:number;
+  priceNumber: number;
 }
 
 interface HomeProps {
-  products: Product[];
+  productsPagination: {
+    next_page: number;
+    results: Product[];
+  };
 }
 
-export default function Home({ products }: HomeProps) {
+export default function Home({ productsPagination }: HomeProps) {
+  const [products, setProducts] = useState<Product[]>(productsPagination.results);
+  const [currentPage, setCurrentPage] = useState(2);
+
+  async function handleMoreProducts() {
+    const response = await axios.get("/products", {
+      params: { page: currentPage, rows: 5, sortBy: "id", orderBy: "ASC" },
+    });
+
+    const productsFormatted = response.data.products.map((product: Product) => {
+      return {
+        ...product,
+        price: new Intl.NumberFormat("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        }).format(Number(product.price)),
+        priceNumber: product.price,
+      };
+    });
+
+    setCurrentPage(currentPage + 1);
+    setProducts([...products, ...productsFormatted]);
+  }
+
   return (
     <>
       <Head>
@@ -29,25 +55,19 @@ export default function Home({ products }: HomeProps) {
         {products.map((product) => (
           <Product key={product.id} data={product} />
         ))}
-        <ToastContainer 
-          position="top-left"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
       </Container>
+      <MoreProduct>
+        <button type="button" onClick={handleMoreProducts}>
+          mais produtos
+        </button>
+      </MoreProduct>
     </>
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const response = await axios.get("/products", {
-    params: { page: 1, rows: 10, sortBy: "id", orderBy: "ASC" },
+    params: { page: 1, rows: 5, sortBy: "id", orderBy: "ASC" },
   });
 
   const productsFormatted = response.data.products.map((product: Product) => {
@@ -57,13 +77,19 @@ export const getServerSideProps: GetServerSideProps = async () => {
         style: "currency",
         currency: "BRL",
       }).format(Number(product.price)),
-      priceNumber: product.price
+      priceNumber: product.price,
     };
   });
 
+  const productsPagination = {
+    next_page: 2,
+    results: productsFormatted
+  }
+
   return {
     props: {
-      products: productsFormatted,
+      productsPagination
     },
+    revalidate: 60 * 60 * 24, //1 hour
   };
 };

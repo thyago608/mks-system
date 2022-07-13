@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Container = styled.div`
   background: var(--white);
@@ -9,15 +9,27 @@ export const Container = styled.div`
   width: 240px;
   padding: 1.125rem 1rem;
 
+  animation: animation 0.2s backwards;
+
   @media (min-width: 1024px) {
     width: 85%;
     height: 95px;
 
     display: flex;
     align-items: center;
-    gap: 20px;    
+    gap: 20px;
 
     position: relative;
+  }
+
+  @keyframes animation{
+    from{
+      transform: translateX(-400px);
+    }
+    
+    to{
+      transform: translateX(0);
+    }
   }
 `;
 
@@ -39,8 +51,8 @@ export const Heading = styled.div`
     right: -15px;
 
     background: 0;
-    
-    svg{
+
+    svg {
       stroke: var(--black);
       width: 30px;
       height: 30px;
@@ -49,7 +61,7 @@ export const Heading = styled.div`
 
   @media (min-width: 1024px) {
     position: revert;
-    
+
     .container-image {
       width: 46px;
       height: 57px;
@@ -61,8 +73,8 @@ export const Heading = styled.div`
       right: -7px;
 
       background: var(--black);
-      
-      svg{
+
+      svg {
         stroke: var(--white);
 
         width: 13px;
@@ -83,17 +95,17 @@ export const Content = styled.div`
   .quantityAndValue {
     display: flex;
     justify-content: space-between;
-    gap:15px;
+    gap: 15px;
 
     .quantity {
       width: 100px;
       height: 27px;
       padding: 0.225rem;
-      
+
       display: flex;
       justify-content: space-between;
       align-items: center;
-      
+
       border-radius: 4px;
       border: 1px solid rgba(191, 191, 191, 0.4);
 

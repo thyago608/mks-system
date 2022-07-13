@@ -26,3 +26,9 @@ export function removeProductFromCartForced(product:IProduct){
     }
   }
 }
+
+export function removeAllProductsToCart(){
+  return{
+    type:"REMOVE_ALL_PRODUCTS_TO_CART"
+  }
+}
