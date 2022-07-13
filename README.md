@@ -17,6 +17,7 @@ O projeto foi desenvolvido com as seguintes tecnologias:
 - [Styled-Components](https://styled-components.com)
 - [API REST MKS Desenvolvimento de Sistemas](https://mks-frontend-challenge-api.herokuapp.com/api-docs/)
 - [Axios](https://axios-http.com/docs/intro)
+- [Jest](https://jestjs.io/pt-BR/)
 
 # Sobre a aplicação:
 
@@ -28,11 +29,13 @@ Foi desenvolvido o proposto, além de adicionar as funcionalidades de diminuir a
 
 Para o teste, a empresa **MKS Desenvolvimento de Sistemas** forneceu o link da api para realizar o consumo de produtos na aplicação desenvolvida.
 
-## Sobre as Tecnologias Utilizadas:
+# Sobre as Tecnologias Utilizadas:
 
 **NextJS**: Foi escolhido para utilizar o recurso de geração de páginas estáticas, além de realizar as renderizações ao lado do servidor assim garantindo dados para SEO.
 
 **Typescript**: Para realizar a tipagem das informações.
+
+**Jest**: Biblioteca para realizar testes unitários.
 
 **Styled-components**: Escolha pessoal apenas, mas a aplicação poderia ser desenvolvida com css ou sass.
 
@@ -42,7 +45,7 @@ Para o teste, a empresa **MKS Desenvolvimento de Sistemas** forneceu o link da a
 
 ---
 
-## Como baixar o projeto
+# Como baixar o projeto
 
 ```bash
     # Clonar repositório
@@ -56,10 +59,13 @@ Para o teste, a empresa **MKS Desenvolvimento de Sistemas** forneceu o link da a
 
     # Executando a aplicação
     $ yarn dev
+    
+    # Executando testes
+    $ yarn test
 ```
 
 ## Visite
 
-[spacetraveling](https://spacetraveling46723129.vercel.app/)
+[mks sistemas](https://spacetraveling46723129.vercel.app/)
 
 Desenvolvido por Thyago Ribeiro 👋
