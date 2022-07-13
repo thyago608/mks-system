@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next";
 import { ToastContainer } from "react-toastify";
 import Head from "next/head";
-import { Container } from "./home";
+import { Container } from "../styles/home";
 import { Product } from "components/Product";
 import axios from "services/api";
 
