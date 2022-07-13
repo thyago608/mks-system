@@ -21,21 +21,21 @@ export function MiniCardProduct({ data }: MiniCardProductProps) {
     (product: IProduct) => {
       dispatch(addProductToCart(product));
     },
-    [addProductToCart,dispatch]
+    [dispatch]
   );
 
   const handleRemoveProductToCart = useCallback(
     (product: IProduct) => {
       dispatch(removeProductToCart(product));
     },
-    [removeProductToCart,dispatch]
+    [dispatch]
   );
 
   const handleRemoveProductFromCartForced = useCallback(
     (product: IProduct) => {
       dispatch(removeProductFromCartForced(product));
     },
-    [removeProductFromCartForced,dispatch]
+    [dispatch]
   );
 
   return (
