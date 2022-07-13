@@ -4,7 +4,7 @@
 
 ## Sobre
 
-O projeto **MKS Sistemas**, é um ecommerce ficticio proposto pela empresa MKS Desenvolvimento de Sistemas. O mesmo foi desenvolvido dentro de um período de 3 dias, afim de cumprir o prazo estipulado pela empresa **MKS Desenvolvimento de Sistemas** para um teste.
+O projeto **MKS Sistemas**, é um ecommerce ficticio proposto pela empresa **MKS Desenvolvimento de Sistemas**. O mesmo foi desenvolvido dentro de um período de 3 dias, afim de cumprir o prazo estipulado pela empresa para um teste.
 
 ---
 
