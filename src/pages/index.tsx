@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import { Container, MoreProduct } from "../styles/home";
@@ -19,11 +20,14 @@ interface HomeProps {
   productsPagination: {
     next_page: number;
     results: Product[];
+    total: number;
   };
 }
 
 export default function Home({ productsPagination }: HomeProps) {
-  const [products, setProducts] = useState<Product[]>(productsPagination.results);
+  const [products, setProducts] = useState<Product[]>(
+    productsPagination.results
+  );
   const [currentPage, setCurrentPage] = useState(2);
 
   async function handleMoreProducts() {
@@ -51,16 +55,19 @@ export default function Home({ productsPagination }: HomeProps) {
       <Head>
         <title>Dashboard | MKS Sistemas</title>
       </Head>
+      <ToastContainer />
       <Container>
         {products.map((product) => (
           <Product key={product.id} data={product} />
         ))}
       </Container>
-      <MoreProduct>
-        <button type="button" onClick={handleMoreProducts}>
-          mais produtos
-        </button>
-      </MoreProduct>
+      {products.length < productsPagination.total && (
+        <MoreProduct>
+          <button type="button" onClick={handleMoreProducts}>
+            mais produtos
+          </button>
+        </MoreProduct>
+      )}
     </>
   );
 }
@@ -83,12 +90,13 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const productsPagination = {
     next_page: 2,
-    results: productsFormatted
-  }
+    results: productsFormatted,
+    total: response.data.count,
+  };
 
   return {
     props: {
-      productsPagination
+      productsPagination,
     },
     revalidate: 60 * 60 * 24, //1 hour
   };
