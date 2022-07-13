@@ -66,6 +66,6 @@ Para o teste, a empresa **MKS Desenvolvimento de Sistemas** forneceu o link da a
 
 ## Visite
 
-[mks sistemas]([https://mks-system-pjj13d9m8-thyago608.vercel.app/]))
+[mks sistemas](https://mks-system-pjj13d9m8-thyago608.vercel.app/)
 
 Desenvolvido por Thyago Ribeiro 👋
