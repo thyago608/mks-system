@@ -16,11 +16,14 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     gap: 20px;    
+
     position: relative;
   }
 `;
 
 export const Heading = styled.div`
+  position: relative;
+
   .container-image {
     position: relative;
 
@@ -31,10 +34,22 @@ export const Heading = styled.div`
   }
 
   button {
-    display: none;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+
+    background: 0;
+    
+    svg{
+      stroke: var(--black);
+      width: 30px;
+      height: 30px;
+    }
   }
 
   @media (min-width: 1024px) {
+    position: revert;
+    
     .container-image {
       width: 46px;
       height: 57px;
@@ -42,11 +57,17 @@ export const Heading = styled.div`
     }
 
     button {
-      display: flex;
-
-      position: absolute;
       top: -7px;
       right: -7px;
+
+      background: var(--black);
+      
+      svg{
+        stroke: var(--white);
+
+        width: 13px;
+        height: 13px;
+      }
     }
   }
 `;

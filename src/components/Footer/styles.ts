@@ -15,7 +15,6 @@ export const Container = styled.footer`
 
   p {
     font-size: 0.75rem;
-    line-height: 10.2894rem;
     color: var(--black);
   }
 `;

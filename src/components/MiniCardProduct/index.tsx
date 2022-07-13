@@ -48,9 +48,7 @@ export function MiniCardProduct({ data }: MiniCardProductProps) {
             layout="fill"
           />
         </div>
-        <CloseButton
-          size={10}
-          handleClose={() => handleRemoveProductFromCartForced(data.product)}
+        <CloseButton handleClose={() => handleRemoveProductFromCartForced(data.product)}
         />
       </Heading>
       <Content>

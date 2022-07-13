@@ -10,7 +10,9 @@ type SidebarDrawerContextProps = {
   isOpenSidebar: boolean;
 };
 
-export const SidebarDrawerContext = createContext({} as SidebarDrawerContextProps);
+export const SidebarDrawerContext = createContext(
+  {} as SidebarDrawerContextProps
+);
 
 export function SidebarDrawerProvider({
   children,

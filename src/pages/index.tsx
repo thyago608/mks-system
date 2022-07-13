@@ -1,4 +1,5 @@
 import { GetServerSideProps } from "next";
+import { ToastContainer } from "react-toastify";
 import Head from "next/head";
 import { Container } from "./home";
 import { Product } from "components/Product";
@@ -28,6 +29,17 @@ export default function Home({ products }: HomeProps) {
         {products.map((product) => (
           <Product key={product.id} data={product} />
         ))}
+        <ToastContainer 
+          position="top-left"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </Container>
     </>
   );

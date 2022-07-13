@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.aside`
   background: var(--blue);
@@ -15,11 +15,11 @@ export const Container = styled.aside`
 
   width: 275px;
 
-  @media(min-width: 768px){
+  @media (min-width: 768px) {
     width: 360px;
   }
 
-  @media(min-width: 1024px){
+  @media (min-width: 1024px) {
     width: 486px;
   }
 `;
@@ -35,7 +35,7 @@ export const Heading = styled.div`
     color: var(--white);
   }
 
-  @media(min-width: 1024px){
+  @media (min-width: 1024px) {
     padding: 2.2rem;
   }
 `;
@@ -43,7 +43,7 @@ export const Heading = styled.div`
 export const ProductList = styled.div`
   overflow-y: scroll;
 
-  &::-webkit-scrollbar{
+  &::-webkit-scrollbar {
     appearance: none;
   }
 
@@ -61,12 +61,14 @@ export const Footer = styled.footer`
 
   .total {
     margin: 20px 0 28px 0;
-    padding: 0 1.7rem;
+
+    position: relative;
+    left: -20px;
 
     display: flex;
     justify-content: space-between;
-    gap: 50px;
     transform: scale(0.7);
+    gap: 60px;
     color: var(--white);
 
     font-weight: 700;
@@ -76,23 +78,29 @@ export const Footer = styled.footer`
       text-transform: capitalize;
     }
   }
+`;
 
-  button {
-    border: 0;
+type ButtonProps = {
+  isLoading: boolean;
+};
 
-    width: 100%;
-    height: 65px;
+export const Button = styled.button`
+  border: 0;
 
-    background: var(--black);
-    color: var(--white);
+  width: 100%;
+  height: 65px;
 
-    text-transform: uppercase;
-    font-weight: 700;
+  background: var(--black);
+  color: var(--white);
 
-    transition: filter 0.2s ease-in-out;
+  text-transform: uppercase;
+  font-weight: 700;
 
-    &:hover {
-      filter: brightness(0.8);
-    }
+  transition: filter 0.2s ease-in-out;
+
+  position: relative;
+
+  &:hover {
+    filter: brightness(0.8);
   }
 `;

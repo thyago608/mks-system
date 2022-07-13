@@ -1,4 +1,4 @@
-import type { AppProps } from "next/app";
+import  { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import { SidebarDrawerProvider } from "context/SidebarDrawerContext";
 import { Header } from "components/Header";
