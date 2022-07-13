@@ -24,7 +24,7 @@ export function Product({ data }: ProductProps) {
 
   const handleAddProductToCart = useCallback((product: IProduct) => {
     dispatch(addProductToCart(product));
-  }, [addProductToCart]);
+  }, [addProductToCart,dispatch]);
 
   return isLoading ? (
     <ProductSkeleton />
